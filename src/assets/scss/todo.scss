@@ -1,0 +1,38 @@
+.todo {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__input {
+    display: block;
+    padding: 6px;
+    border: 1px solid #ccc;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    max-width: 200px;
+
+    p {
+      max-width: 200px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      overflow: hidden;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+}
