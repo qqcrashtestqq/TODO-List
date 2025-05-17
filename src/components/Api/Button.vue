@@ -1,9 +1,13 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+defineProps<{
+  text: string;
+}>();
+</script>
 
 <template>
-  <button class="button">create task</button>
+  <button class="button">{{ text }}</button>
 </template>
 
 <style lang="scss" scoped>
-@import "/src/assets/scss/api/button.scss";
+@use "../../assets/scss/api/button.scss";
 </style>

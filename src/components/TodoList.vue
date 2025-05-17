@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import Button from "./Api/Button.vue";
 import { ref } from "vue";
+import Calendar from "./Calendar.vue";
 
 interface ITODOLiST {
   id: number;
@@ -41,24 +42,29 @@ function deleteItem(id: number) {
   <section class="todo">
     <div class="container">
       <div class="todo__inner">
-        <div class="todo__box">
-          <input
-            type="text"
-            v-model="input"
-            class="todo__input"
-            placeholder="Введите вашу задачу "
-          />
-          <Button @click="createTask" />
-        </div>
+        <form action="" class="todo__form">
+          <label for="" class="todo__label">
+            <input
+              type="text"
+              v-model="input"
+              class="todo__input"
+              placeholder="Введите вашу задачу "
+            />
+          </label>
+          <Calendar class="todo__calendar" />
+        </form>
+        <Button text="Create task" @click="createTask" class="todo__btn" />
         <ol class="todo__list">
           <li v-for="item in listTodo" :key="item.id" class="todo__item">
-            <p>{{ item.text }}</p>
+            <div class="todo__box">
+              <p class="todo__box-text">{{ item.text }}</p>
+              <span class="todo__box-date">date/time: {{ item.id }}</span>
+            </div>
 
-            <button @click="deleteItem(item.id)">X</button>
+            <Button text="X" @click="deleteItem(item.id)" />
           </li>
         </ol>
       </div>
-      <!-- <button @click="getAllTasks">Получить все задачи</button> -->
     </div>
   </section>
 </template>

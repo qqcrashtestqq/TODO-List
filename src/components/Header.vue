@@ -1,13 +1,30 @@
 <script lang="ts" setup>
-const headerList: string[] = ["About", "List", "Contact"];
+const MENU_LIST = [
+  {
+    name: "Home",
+    link: "/",
+  },
+  {
+    name: "About",
+    link: "/about",
+  },
+  {
+    name: "All tasks",
+    link: "/tasks",
+  },
+];
 </script>
 
 <template>
   <header class="header">
     <div class="container">
       <ul class="header__list">
-        <li v-for="(item, index) in headerList" :key="index">
-          <a href="#">{{ item }}</a>
+        <li
+          v-for="(item, index) in MENU_LIST"
+          :key="index"
+          class="header__item"
+        >
+          <a :href="item.link" class="header__link">{{ item.name }}</a>
         </li>
       </ul>
     </div>
