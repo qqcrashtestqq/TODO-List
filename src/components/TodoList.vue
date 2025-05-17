@@ -68,7 +68,7 @@ console.log("saveList", saveList);
           <li v-for="item in listTodo" :key="item.id" class="todo__item">
             <div class="todo__box">
               <p class="todo__box-text">{{ item.text }}</p>
-              <span class="todo__box-date">date/time: {{ item.date }}</span>
+              <span class="todo__box-date">date/time:</span>
             </div>
 
             <Button
