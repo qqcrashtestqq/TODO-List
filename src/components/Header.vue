@@ -24,7 +24,9 @@ const MENU_LIST = [
           :key="index"
           class="header__item"
         >
-          <a :href="item.link" class="header__link">{{ item.name }}</a>
+          <RouterLink :to="item.link" class="header__link"
+            >{{ item.name }}
+          </RouterLink>
         </li>
       </ul>
     </div>

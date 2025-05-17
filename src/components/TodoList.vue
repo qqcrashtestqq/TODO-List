@@ -2,16 +2,21 @@
 import Button from "./Api/Button.vue";
 import { ref } from "vue";
 import Calendar from "./Calendar.vue";
+// import { useCalendar } from "../stores/calendar";
+import { useTask } from "../stores/task";
 
 interface ITODOLiST {
   id: number;
   text: string;
+  // date: object | null;
 }
 
 const input = ref<string>("");
 const numberId = ref(0);
 const listTodo = ref<ITODOLiST[]>([]);
 const saveList = localStorage.getItem("todo-list");
+// const { date, clearDate } = useCalendar();
+const { allTasks } = useTask();
 
 if (saveList) {
   listTodo.value = JSON.parse(saveList);
@@ -19,7 +24,7 @@ if (saveList) {
 
 function createTask() {
   if (input.value === "") return;
-
+  //  // date: date?.value,
   listTodo.value.push({
     id: numberId.value++,
     text: input.value,
@@ -27,6 +32,9 @@ function createTask() {
 
   localStorage.setItem("todo-list", JSON.stringify(listTodo.value));
   input.value = "";
+  allTasks(listTodo.value);
+  // clearDate();
+  console.log("listTodo", listTodo.value);
 }
 
 function deleteItem(id: number) {
@@ -36,6 +44,8 @@ function deleteItem(id: number) {
   listTodo.value.splice(searchItem, 1);
   localStorage.setItem("todo-list", JSON.stringify(listTodo.value));
 }
+
+console.log("saveList", saveList);
 </script>
 
 <template>
@@ -51,17 +61,21 @@ function deleteItem(id: number) {
               placeholder="Введите вашу задачу "
             />
           </label>
-          <Calendar class="todo__calendar" />
         </form>
+        <Calendar class="todo__calendar" />
         <Button text="Create task" @click="createTask" class="todo__btn" />
         <ol class="todo__list">
           <li v-for="item in listTodo" :key="item.id" class="todo__item">
             <div class="todo__box">
               <p class="todo__box-text">{{ item.text }}</p>
-              <span class="todo__box-date">date/time: {{ item.id }}</span>
+              <span class="todo__box-date">date/time: {{ item.date }}</span>
             </div>
 
-            <Button text="X" @click="deleteItem(item.id)" />
+            <Button
+              text="X"
+              @click="deleteItem(item.id)"
+              class="todo__delete"
+            />
           </li>
         </ol>
       </div>

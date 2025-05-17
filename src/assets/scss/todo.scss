@@ -6,12 +6,6 @@
     padding: 0 15px;
   }
 
-  &__box {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
   &__form {
     display: flex;
     align-items: center;
@@ -20,15 +14,15 @@
 
   &__calendar {
     max-width: 250px;
+    height: 40px;
     width: 100%;
   }
 
   &__input {
-    // display: block;
-    max-width: 250px;
-    // width: 100%;
     padding: 6px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--grey);
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
     &:active {
       outline: none;
     }
@@ -36,7 +30,6 @@
 
   &__list {
     margin-top: 12px;
-    font-family: "Roboto", sans-serif;
     font-size: 16px;
     color: var(--black);
   }
@@ -47,7 +40,7 @@
     gap: 12px;
 
     &:not(:last-child) {
-      margin-bottom: 8px;
+      margin-bottom: 12px;
     }
   }
 
@@ -57,15 +50,21 @@
     justify-content: space-between;
     max-width: 600px;
     width: 100%;
-    padding: 8px;
+    padding: 12px;
     border-radius: var(--broder-radius);
-    border: 1px solid #ccc;
-    background-color: #ccc;
+    background-color: var(--grey);
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
 
     &-text {
       max-width: 280px;
       overflow: hidden;
     }
+  }
+
+  &__delete {
+    width: 40px;
+    height: 40px;
   }
 }
 

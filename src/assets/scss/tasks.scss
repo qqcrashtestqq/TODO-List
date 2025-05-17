@@ -1,0 +1,15 @@
+.tasks {
+  padding: 120px 0 80px;
+
+  &__item {
+    padding: 12px;
+    border-radius: var(--broder-radius);
+    background-color: var(--grey);
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+  }
+}

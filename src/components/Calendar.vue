@@ -1,10 +1,15 @@
 <script lang="ts" setup>
 import VueDatePicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import { useCalendar } from "../stores/calendar";
 
 const date = ref<any>();
-console.log("date", date.value);
+const calendarStore = useCalendar();
+
+watch(date, (newDate) => {
+  calendarStore.setDate(newDate);
+});
 </script>
 
 <template>
