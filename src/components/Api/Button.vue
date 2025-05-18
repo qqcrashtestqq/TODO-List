@@ -1,11 +1,15 @@
 <script lang="ts" setup>
 defineProps<{
-  text: string;
+  text?: string;
 }>();
 </script>
 
 <template>
-  <button class="button">{{ text }}</button>
+  <button class="button">
+    {{ text }}
+    <!-- 
+    <slot></slot> -->
+  </button>
 </template>
 
 <style lang="scss" scoped>

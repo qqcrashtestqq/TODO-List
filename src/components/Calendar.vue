@@ -4,11 +4,12 @@ import "@vuepic/vue-datepicker/dist/main.css";
 import { ref, watch } from "vue";
 import { useCalendar } from "../stores/calendar";
 
-const date = ref<any>();
-const calendarStore = useCalendar();
+const date = ref();
+const { setDate } = useCalendar();
 
-watch(date, (newDate) => {
-  calendarStore.setDate(newDate);
+watch(date, (dateItem) => {
+  setDate(dateItem);
+  // console.log("dateItem", dateItem);
 });
 </script>
 
